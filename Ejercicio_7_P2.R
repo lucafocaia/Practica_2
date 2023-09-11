@@ -12,6 +12,10 @@ anio=as.numeric(z)
 
 dia2=dia+1
 
+a=anio%%4
+b=anio%%100
+c=anio%%400
+
 nombre_del_mes=0
 
 if (mes==1) {
@@ -22,9 +26,16 @@ if (mes==1) {
   }
 } else if (mes==2) {
   nombre_del_mes="Febrero"
-  if (dia==28) {
-    dia2=1
-    nombre_del_mes="Marzo"
+  if ((a==0 & b!=0) | (b==0 & c==0)) {
+    if (dia==29) {
+      dia2=1
+      nombre_del_mes="Marzo"
+    }
+  } else {
+    if (dia==28) {
+      dia2=1
+      nombre_del_mes="Marzo"
+    }
   }
 } else if (mes==3) {
   nombre_del_mes="Marzo"
